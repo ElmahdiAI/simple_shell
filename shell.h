@@ -21,7 +21,7 @@
 #define min(x, y) (((x) < (y)) ? (x) : (y))
 
 /**
- *struct map - a struct that maps a command name to a function 
+ *struct map - a struct that maps a command name to a function
  *
  *@command_name: name of the command
  *@func: the function that executes the command
@@ -39,34 +39,34 @@ extern char **commands;
 extern char *shell_name;
 extern int status;
 
-//string_tools
+/*string_tools*/
 int _strcmp(char *, char *);
 char *_strcat(char *, char *);
 int _strspn(char *, char *);
 int _strcspn(char *, char *);
-char *_strchr(char *, char );
-//string_tools2
+char *_strchr(char *, char);
+/*string_tools2*/
 char *strtok_r(char *, char *, char **);
 int _atoi(char *);
 void comment(char *);
 void _strcpy(char *, char *);
 int _strlen(char *);
-//tools1
+/*tools1*/
 int parse_cmd(char *);
-void execute_cmd(char **, int );
+void execute_cmd(char **, int);
 char *check_path(char *);
 void (*get_func(char *))(char **);
 char *_getenv(char *);
-//tools2
+/*tools2*/
 char **tokenizer(char *, char *);
 void _print(char *, int);
 void remove_newline(char *);
 void *_realloc(void *, unsigned int, unsigned int);
 void ctrl_c_handler(int);
-//tools3
+/*tools3*/
 void env(char **);
 void quit(char **);
-//interactive_mode
+/*interactive_mode*/
 extern void uninteractive(void);
 extern void initializer(char **, int);
 

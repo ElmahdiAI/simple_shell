@@ -81,8 +81,8 @@ int _strcspn(char *str1, char *str2)
 
 /**
  *_strchr - locates a char in a string
- *@s: string to be searched
- *@c: char to be checked
+ *@str: string to be searched
+ *@char: char to be checked
  *Return: pointer to the first occurence of c in s
  */
 char *_strchr(char *str, char char)
