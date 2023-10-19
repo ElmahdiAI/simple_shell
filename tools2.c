@@ -13,7 +13,7 @@ char **tokenizer(char *str, char *delim)
 	char *token = NULL;
 	char *save_ptr = NULL;
 
-	token = strtok_r(str, delim, &save_ptr);
+	token = _strtok_r(str, delim, &save_ptr);
 	while (token != NULL)
 	{
 		av = _realloc(av, sizeof(*av) * num_delim, sizeof(*av) * (num_delim + 1));

@@ -46,7 +46,7 @@ int _strspn(char *, char *);
 int _strcspn(char *, char *);
 char *_strchr(char *, char);
 /*string_tools2*/
-char *strtok_r(char *, char *, char **);
+char *_strtok_r(char *, char *, char **);
 int _atoi(char *);
 void comment(char *);
 void _strcpy(char *, char *);

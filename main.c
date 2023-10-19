@@ -18,7 +18,7 @@ int main(int argc __attribute__((unused)), char **argv)
 	while (1)
 	{
 		uninteractive();
-		print(" $GAZA$ ", STDOUT_FILENO);
+		_print(" $GAZA$ ", STDOUT_FILENO);
 		if (getline(&line, &n, stdin) == -1)
 		{
 			free(line);

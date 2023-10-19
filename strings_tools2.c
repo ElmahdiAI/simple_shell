@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- *strtok_r - tokenizes a string
+ *_strtok_r - tokenizes a string
  *@str: string to be tokenized
  *@delim: delimiter to be used to tokenize the string
  *@next: pointer to be used to keep track of the next token
  *Return: The next available token
  */
-char *strtok_r(char *str, char *delim, char **next)
+char *_strtok_r(char *str, char *delim, char **next)
 {
 	char *end;
 
