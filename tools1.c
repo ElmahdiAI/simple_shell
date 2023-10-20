@@ -39,6 +39,8 @@ int parse_cmd(char *cmd)
 void execute_cmd(char **tokenized_cmd, int cmd_type)
 {
 	void (*func)(char **cmd);
+	vars global_var = {
+		NULL, NULL, NULL, NULL, 0};
 
 	if (cmd_type == EXTERNAL_CMD)
 	{
@@ -63,11 +65,11 @@ void execute_cmd(char **tokenized_cmd, int cmd_type)
 	}
 	if (cmd_type == INVALID_CMD)
 	{
-		_print(shell_name, STDERR_FILENO);
+		_print(global_var.shell_name, STDERR_FILENO);
 		_print(": 1: ", STDERR_FILENO);
 		_print(tokenized_cmd[0], STDERR_FILENO);
 		_print(": not found\n", STDERR_FILENO);
-		status = 127;
+		global_var.status = 127;
 	}
 }
 
@@ -139,8 +141,10 @@ char *_getenv(char *name)
 	char **my_environ;
 	char *pair_ptr;
 	char *name_cpy;
+	vars global_var = {
+		NULL, NULL, NULL, NULL, 0};
 
-	for (my_environ = environ; *my_environ != NULL; my_environ++)
+	for (my_environ = global_var.environ; *my_environ != NULL; my_environ++)
 	{
 		for (pair_ptr = *my_environ, name_cpy = name;
 		     *pair_ptr == *name_cpy; pair_ptr++, name_cpy++)
