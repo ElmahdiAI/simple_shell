@@ -25,7 +25,7 @@ int main(int argc __attribute__((unused)), char **argv)
 			exit(status);
 		}
 			remove_newline(line);
-			remove_comment(line);
+			comment(line);
 			commands = tokenizer(line, ";");
 
 		for (i = 0; commands[i] != NULL; i++)
@@ -36,7 +36,7 @@ int main(int argc __attribute__((unused)), char **argv)
 				free(cmd);
 				break;
 			}
-			type_cmd = parse_command(cmd[0]);
+			type_cmd = parse_cmd(cmd[0]);
 
 			initializer(cmd, type_cmd);
 			free(cmd);

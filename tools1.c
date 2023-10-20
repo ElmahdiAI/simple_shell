@@ -63,10 +63,10 @@ void execute_cmd(char **tokenized_cmd, int cmd_type)
 	}
 	if (cmd_type == INVALID_CMD)
 	{
-		print(shell_name, STDERR_FILENO);
-		print(": 1: ", STDERR_FILENO);
-		print(tokenized_cmd[0], STDERR_FILENO);
-		print(": not found\n", STDERR_FILENO);
+		_print(shell_name, STDERR_FILENO);
+		_print(": 1: ", STDERR_FILENO);
+		_print(tokenized_cmd[0], STDERR_FILENO);
+		_print(": not found\n", STDERR_FILENO);
 		status = 127;
 	}
 }
@@ -122,7 +122,7 @@ void (*get_func(char *cmd))(char **)
 
 	for (i = 0; i < 2; i++)
 	{
-		if (_strcmp(cmd, mapping[i].cmd_name) == 0)
+		if (_strcmp(cmd, mapping[i].command_name) == 0)
 			return (mapping[i].func);
 	}
 	return (NULL);

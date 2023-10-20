@@ -107,5 +107,5 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 void ctrl_c_handler(int ctrl)
 {
 	if (ctrl == SIGINT)
-		print("\n($) ", STDIN_FILENO);
+		_print("\n($) ", STDIN_FILENO);
 }

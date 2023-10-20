@@ -85,13 +85,13 @@ int _strcspn(char *str1, char *str2)
  *@char: char to be checked
  *Return: pointer to the first occurence of c in s
  */
-char *_strchr(char *str, char char)
+char *_strchr(char *str, char c)
 {
 	int i = 0;
 
-	for (; str[i] != char && str[i] != '\0'; i++)
+	for (; str[i] != c && str[i] != '\0'; i++)
 		;
-	if (str[i] == char)
+	if (str[i] == c)
 		return (str + i);
 	else
 		return (NULL);

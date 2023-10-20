@@ -15,7 +15,7 @@ void uninteractive(void)
 		while (getline(&line, &n, stdin) != -1)
 		{
 			remove_newline(line);
-			remove_comment(line);
+			comment(line);
 			commands = tokenizer(line, ";");
 			for (i = 0; commands[i] != NULL; i++)
 			{
@@ -25,7 +25,7 @@ void uninteractive(void)
 					free(cmd);
 					break;
 				}
-				type_cmd = parse_command(cmd[0]);
+				type_cmd = parse_cmd(cmd[0]);
 				initializer(cmd, type_cmd);
 				free(cmd);
 			}
