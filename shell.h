@@ -32,24 +32,11 @@ typedef struct map
 	char *command_name;
 	void (*func)(char **command);
 } function_map;
-
-/**
- *struct gvars - a struct that contains global var
- * @environ: environ
- * @line: line
- * @commands: commands
- * @shell_name: shall name
- * @status: status of exit
- */
-typedef struct gvars
-{
-	char **environ;
-	char *line;
-	char **commands;
-	char *shell_name;
-	int status;
-} vars;
-
+extern char **environ;
+extern char *line;
+extern char **commands;
+extern char *shell_name;
+extern int status;
 /*string_tools*/
 int _strcmp(char *, char *);
 char *_strcat(char *, char *);

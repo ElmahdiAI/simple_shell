@@ -11,8 +11,6 @@
 void initializer(char **current_cmd, int type_cmd)
 {
 	pid_t PID;
-	vars global_var = {
-		NULL, NULL, NULL, NULL, 0};
 
 	if (type_cmd == EXTERNAL_CMD || type_cmd == PATH_CMD)
 	{
@@ -21,8 +19,8 @@ void initializer(char **current_cmd, int type_cmd)
 			execute_cmd(current_cmd, type_cmd);
 		else
 		{
-			waitpid(PID, &global_var.status, 0);
-			global_var.status >>= 8;
+			waitpid(PID, &status, 0);
+			status >>= 8;
 		}
 	}
 	else

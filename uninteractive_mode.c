@@ -9,19 +9,17 @@ void uninteractive(void)
 	char **cmd = NULL;
 	int i, type_cmd = 0;
 	size_t n = 0;
-	vars global_var = {
-		NULL, NULL, NULL, NULL, 0};
 
 	if (!(isatty(STDIN_FILENO)))
 	{
-		while (getline(&global_var.line, &n, stdin) != -1)
+		while (getline(&line, &n, stdin) != -1)
 		{
-			remove_newline(global_var.line);
-			comment(global_var.line);
-			global_var.commands = tokenizer(global_var.line, ";");
-			for (i = 0; global_var.commands[i] != NULL; i++)
+			remove_newline(line);
+			comment(line);
+			commands = tokenizer(line, ";");
+			for (i = 0; commands[i] != NULL; i++)
 			{
-				cmd = tokenizer(global_var.commands[i], " ");
+				cmd = tokenizer(commands[i], " ");
 				if (cmd[0] == NULL)
 				{
 					free(cmd);
@@ -31,9 +29,9 @@ void uninteractive(void)
 				initializer(cmd, type_cmd);
 				free(cmd);
 			}
-			free(global_var.commands);
+			free(commands);
 		}
-		free(global_var.line);
-		exit(global_var.status);
+		free(line);
+		exit(status);
 	}
 }
